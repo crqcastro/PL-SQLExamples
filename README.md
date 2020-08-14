@@ -1,7 +1,7 @@
 # PL-SQLExamples
-## This project contains examples of using SQL Oracle and PL / SQL functions and routines
-### It is organized in your folders by the names of routines / functions / examples. All files are SQL scripts that can be used to test each topic covered
-<hr/>
+### This project contains examples of using SQL Oracle and PL / SQL functions and routines
+#### It is organized in your folders by the names of routines / functions / examples. All files are SQL scripts that can be used to test each topic covered
+<code><hr/></code>
 ## Contributing :
 
 * Fork it `https://github.com/crqcastro/PL-SQLExamples/fork`
@@ -10,6 +10,6 @@
 * Push to the branch `git push origin my-new-feature`
 * Create a new Pull Request
 
-<hr/>
+<code><hr/></code>
 ### Have fun! :grin:
 

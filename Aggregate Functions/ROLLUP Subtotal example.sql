@@ -1,6 +1,6 @@
 /*
 +----------------------------------------------------------------------------------+
-| PT-BR: Exemplo sobre como criar subtotais usando a função ROLLUP                 |
+| PT-BR: Exemplo sobre como criar subtotais usando a funÃ§Ã£o ROLLUP                 |
 | EN-US: Example on creating subtotals usin ROLLUP function                        |
 | Author: Cesar Castro                                                             |
 +----------------------------------------------------------------------------------+

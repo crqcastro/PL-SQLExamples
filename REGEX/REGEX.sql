@@ -1,22 +1,22 @@
 /*
 +-----------------------------------------------------------------------------------------------------+
 | REGEXP_COUNT                                                                                        |
-| Conta a quantidade de ocorrÍncias da express„o no texto procurado                                   |
+| Conta a quantidade de ocorr√™ncias da express√£o no texto procurado                                   |
 +-----------------------------------------------------------------------------------------------------+
-| REGEXP_COUNT(<Texto informado>, <regex>, posiÁ„o do inicio do teste, parametro)                     |
+| REGEXP_COUNT(<Texto informado>, <regex>, posi√ß√£o do inicio do teste, parametro)                     |
 | Parametros:                                                                                         |
 | >> 'i' Case-insensitive                                                                             |
 | >> 'c' case-sensitive                                                                               |
-| >> 'n' permite que o ponto (.), que È o caractere de correspondÍncia de qualquer caractere,         |
-| corresponda ao caractere de nova linha. Se vocÍ omitir esse par‚metro, o ponto n„o corresponde      |
+| >> 'n' permite que o ponto (.), que √© o caractere de correspond√™ncia de qualquer caractere,         |
+| corresponda ao caractere de nova linha. Se voc√™ omitir esse par√¢metro, o ponto n√£o corresponde      |
 | ao caractere de nova linha.                                                                         |
-| >> 'm' trata a string de origem como v·rias linhas. O Oracle interpreta o acento circunflexo (^)    |
-| e o cifr„o ($) como o inÌcio e o fim, respectivamente, de qualquer linha em qualquer lugar na       |
-| string de origem, em vez de apenas no inÌcio ou no final de toda a string de origem. Se vocÍ omitir |
-| esse par‚metro, o Oracle tratar· a string de origem como uma ˙nica linha.                           |
-| >> 'x' ignora caracteres de espaÁo em branco. Por padr„o, os caracteres de espaÁo em branco         |
+| >> 'm' trata a string de origem como v√°rias linhas. O Oracle interpreta o acento circunflexo (^)    |
+| e o cifr√£o ($) como o in√≠cio e o fim, respectivamente, de qualquer linha em qualquer lugar na       |
+| string de origem, em vez de apenas no in√≠cio ou no final de toda a string de origem. Se voc√™ omitir |
+| esse par√¢metro, o Oracle tratar√° a string de origem como uma √∫nica linha.                           |
+| >> 'x' ignora caracteres de espa√ßo em branco. Por padr√£o, os caracteres de espa√ßo em branco         |
 | correspondem a si mesmos.                                                                           |
-| ** Parametro n„o È obrigatÛrio **                                                                   |
+| ** Parametro n√£o √© obrigat√≥rio **                                                                   |
 +-----------------------------------------------------------------------------------------------------+
 | Ex:                                                                                                 |
 | select REGEXP_COUNT('554733251368', '(55[1-9]{2}[2,3,4,5]{1}[0-9]{7})', 1, 'i') from dual           |
@@ -28,7 +28,7 @@ select REGEXP_COUNT('554733251368', '(55[1-9]{2}[2,3,4,5]{1}[0-9]{7})', 1, 'i') 
 /*
 +-----------------------------------------------------------------------------------------------------+
 | REGEXP_LIKE                                                                                         |
-| Utilizada para verificar, nas clausula where, a ocorrÍncia da express„o no                          |
+| Utilizada para verificar, nas clausula where, a ocorr√™ncia da express√£o no                          |
 | texto da coluna informada                                                                           |
 +-----------------------------------------------------------------------------------------------------+
 | >> Usado na clausula Where de forma similar ao like.                                                |
@@ -36,14 +36,14 @@ select REGEXP_COUNT('554733251368', '(55[1-9]{2}[2,3,4,5]{1}[0-9]{7})', 1, 'i') 
 | Parametros                                                                                          |
 | >> 'i' Case-insensitive                                                                             |
 | >> 'c' case-sensitive                                                                               |
-| >> 'n' permite que o ponto (.), que È o caractere de correspondÍncia de qualquer caractere,         |
-| corresponda ao caractere de nova linha. Se vocÍ omitir esse par‚metro, o ponto n„o corresponde      |
+| >> 'n' permite que o ponto (.), que √© o caractere de correspond√™ncia de qualquer caractere,         |
+| corresponda ao caractere de nova linha. Se voc√™ omitir esse par√¢metro, o ponto n√£o corresponde      |
 | ao caractere de nova linha.                                                                         |
-| >> 'm' trata a string de origem como v·rias linhas. O Oracle interpreta o acento circunflexo (^)    |
-| e o cifr„o ($) como o inÌcio e o fim, respectivamente, de qualquer linha em qualquer lugar na       |
-| string de origem, em vez de apenas no inÌcio ou no final de toda a string de origem. Se vocÍ omitir |
-| esse par‚metro, o Oracle tratar· a string de origem como uma ˙nica linha.                           |
-| ** Parametro n„o È obrigatÛrio **                                                                   |
+| >> 'm' trata a string de origem como v√°rias linhas. O Oracle interpreta o acento circunflexo (^)    |
+| e o cifr√£o ($) como o in√≠cio e o fim, respectivamente, de qualquer linha em qualquer lugar na       |
+| string de origem, em vez de apenas no in√≠cio ou no final de toda a string de origem. Se voc√™ omitir |
+| esse par√¢metro, o Oracle tratar√° a string de origem como uma √∫nica linha.                           |
+| ** Parametro n√£o √© obrigat√≥rio **                                                                   |
 +-----------------------------------------------------------------------------------------------------+
 | Ex:                                                                                                 |
 | select username, useremail from users                                                               |
@@ -54,12 +54,40 @@ create table users (username varchar2(20),email varchar2(100));
 insert into users values ('Cesar Castro', 'cesarrqc@gmail.com');
 insert into users values ('Mickey Mouse', 'mickey28@hotmail.com');
 select * from users;
-select * from users where REGEXP_LIKE (email, '[a-z0-9]+@hotmail.com', 'i');
+select * from users where REGEXP_LIKE (email, '[a-z0-9.]+@hotmail.com', 'i');
 
 /*
 +-----------------------------------------------------------------------------------------------------+
 | REGEXP_REPLACE                                                                                      |
-| 
+| Utilizado para fazer suibstitui√ß√£o do texto por outro, de acordo com o match do REGEX. Comumente 	  |
+| utlizado para formatar o texto.																	  |
++-----------------------------------------------------------------------------------------------------+
+| REGEXP_REPLACE(<texto original>, <pattern>, <String de substitui√ß√£o>, <posi√ß√£o do inicio do teste>, |
+| <quantos matchs devem ser substituidos>, parametro)												  |
+| 																									  |
+| A quantidade de matches que devem ser substituidos √© um par√¢metro num√©rico n√£o negativo, onde 0     |
+| equivale a substiuir todas as ocorr√™ncias, o qualquer valor positivo indicando quantas ocorr√™ncias  |
+| devem ser substitu√≠das.                                                                             |
+| Parametros:                                                                                         |
+| >> 'i' Case-insensitive                                                                             |
+| >> 'c' case-sensitive                                                                               |
+| >> 'n' permite que o ponto (.), que √© o caractere de correspond√™ncia de qualquer caractere,         |
+| corresponda ao caractere de nova linha. Se voc√™ omitir esse par√¢metro, o ponto n√£o corresponde      |
+| ao caractere de nova linha.                                                                         |
+| >> 'm' trata a string de origem como v√°rias linhas. O Oracle interpreta o acento circunflexo (^)    |
+| e o cifr√£o ($) como o in√≠cio e o fim, respectivamente, de qualquer linha em qualquer lugar na       |
+| string de origem, em vez de apenas no in√≠cio ou no final de toda a string de origem. Se voc√™ omitir |
+| esse par√¢metro, o Oracle tratar√° a string de origem como uma √∫nica linha.                           |
+| >> 'x' ignora caracteres de espa√ßo em branco. Por padr√£o, os caracteres de espa√ßo em branco         |
+| correspondem a si mesmos.                                                                           |
+| ** Parametro n√£o √© obrigat√≥rio **                                                                   |
+|                                                                                                     |
+| A string de substitui√ß√£o pode ser uma outra express√£o que formata a string original ou um texto     |
+| literal para a substitu√≠√ß√£o.																		  |
++-----------------------------------------------------------------------------------------------------+
+| Ex:																								  |
+| select REGEXP_SUBSTR('+5598992007999', '')
+
 REGEXP_INSTR
 REGEXP_SUBSTR
 */
